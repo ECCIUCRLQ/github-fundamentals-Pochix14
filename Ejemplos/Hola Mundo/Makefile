@@ -1,8 +1,13 @@
+APPNAME = hola_mejorado
+ASM =nasm
+AFLAGS =-f elf64
+
 all:
-	nasm -f elf64 -o hola.o hola.asm
-	ld -o exe hola.o
+	@echo "Ensamblando..."
+	$(ASM) $(AFLAGS) -o $(APPNAME).o $(APPNAME).asm
+	ld -o exe $(APPNAME).o
 
 .PHONY: clean
 clean:
-	rm *.o
+	rm *.o exe
 
